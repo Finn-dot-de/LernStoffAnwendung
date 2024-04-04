@@ -4,11 +4,11 @@ import {MatButtonModule} from '@angular/material/button';
 
 
 @Component({
-  selector: 'app-header',
-  standalone: true,
-  imports: [MatButtonModule, MatMenuModule],
-  templateUrl: './header.component.html',
-  styleUrl: './header.component.scss'
+    selector: 'app-header',
+    standalone: true,
+    templateUrl: './header.component.html',
+    styleUrl: './header.component.scss',
+    imports: [MatButtonModule, MatMenuModule]
 })
 export class HeaderComponent {
 
