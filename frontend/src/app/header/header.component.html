@@ -1,0 +1,33 @@
+<header>
+  <div class="header">
+    <div class="logo">
+      <img src="../../assets/img/MainLogo.ico" alt="LernAppLogo" />
+      <h1>Lern-App</h1>
+    </div>
+    <div class="menu">
+      <div class="menu-points">
+        <button mat-button [matMenuTriggerFor]="faecherMenu">Lern-Fächer</button>
+        <mat-menu class="menu-content" #faecherMenu="matMenu" xPosition="after">
+          <button mat-menu-item>AWP</button>
+          <button mat-menu-item>BWP</button>
+          <button mat-menu-item>ITS</button>
+          <button mat-menu-item>ITTk</button>
+          <button mat-menu-item>PUG</button>
+          <button mat-menu-item>PlusD</button>
+        </mat-menu>
+      </div>
+      <div class="menu-points">
+        <button mat-button [matMenuTriggerFor]="uebungenMenu">Übungen</button>
+        <mat-menu class="menu-content" #uebungenMenu="matMenu" xPosition="after">
+          <button mat-menu-item>AWP Übungen</button>
+          <button mat-menu-item>ITTk Übungen</button>
+          <button mat-menu-item>BWP Übungen</button>
+          <button mat-menu-item>ITS Übungen</button>
+          <button mat-menu-item>Mischübungen</button>
+        </mat-menu>
+      </div>
+    </div>
+  </div>
+</header>
+
+
