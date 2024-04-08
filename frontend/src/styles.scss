@@ -6,6 +6,10 @@ body{
   box-sizing: border-box;
 }
 
+:root {
+  --header-color: #4caf50;
+}
+
 @font-face{
   font-family: NotoSans;
   src: url(assets/fonts/NotoSans-VariableFont_wdth_wght.woff);
