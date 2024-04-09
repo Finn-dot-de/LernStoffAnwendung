@@ -3,6 +3,6 @@
     {{ selectedValue }}
   </button>
   <div *ngIf="showDropdown" class="dropdown-content">
-    <a *ngFor="let option of options">{{ option }}</a>
+    <a *ngFor="let option of options" [routerLink]="option.link">{{ option.name }}</a>
   </div>
 </div>
