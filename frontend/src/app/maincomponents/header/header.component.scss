@@ -1,0 +1,45 @@
+.header {
+  background-color: #4caf50;
+  padding: 10px 0;
+  text-align: center;
+  color: white;
+  box-shadow: 2px 2px 2px #00000070;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .menu {
+    position: relative;
+    right: 0;
+    margin-right: 24px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    color: #FFFF;
+
+    button {
+      color: #FFFF;
+      font-size: 18pt;
+      font-weight: 500;
+    }
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    h1 {
+      margin-left: 20px;
+      font-size: 20pt;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+
+    img {
+      max-width: 100px;
+      margin-left: 20px;
+    }
+  }
+}
