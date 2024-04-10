@@ -18,6 +18,7 @@ export class HeaderComponent {
   ];
   options2 = [
     { name: 'Schnellübung', link: '/schnelluebung' },
+    { name: 'Normale Übung', link: '/normaluebungen' },
     { name: 'Intensiveübungen', link: '/intensiveuebungen' },
     { name: 'Mischübungen', link: '/mischuebungen' },
   ];
