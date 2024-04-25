@@ -1,4 +1,4 @@
-module example.com/meinprojekt
+module github.com/Finn-dot-de/LernStoffAnwendung
 
 go 1.21.6
 
