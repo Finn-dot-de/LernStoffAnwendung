@@ -29,6 +29,19 @@ CREATE TABLE quizschema.antwortmoeglichkeiten (
     FOREIGN KEY (frage_id) REFERENCES quizschema.mc_quiz(frage_id)
 );
 
+CREATE TABLE users (
+    user_id SERIAL PRIMARY KEY,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    password VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    created_at TIMESTAMP DEFAULT NOW()
+);
+
+-- Beispielbenutzer einfügen
+INSERT INTO users (username, password, email) VALUES 
+    ('max_mustermann', 'sicheres_passwort', 'max@example.com'),
+    ('lisa_musterfrau', 'geheim123', 'lisa@example.com');
+
 -- Beispiel: Einfügen einer Multiple-Choice-Frage und Antwortmöglichkeiten
 -- Beachten Sie, dass die Referenzen jetzt das Schema "quizschema" enthalten
 INSERT INTO quizschema.mc_quiz (thema_id, frage) VALUES
