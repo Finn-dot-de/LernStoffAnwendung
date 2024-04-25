@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './langzeit.component.html',
-  styleUrl: './langzeit.component.scss'
+  styleUrls: ['./langzeit.component.scss']
 })
 export class LangzeitComponent {
 

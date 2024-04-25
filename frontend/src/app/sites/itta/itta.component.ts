@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './itta.component.html',
-  styleUrl: './itta.component.scss'
+  styleUrls: ['./itta.component.scss']
 })
 export class IttaComponent {
 

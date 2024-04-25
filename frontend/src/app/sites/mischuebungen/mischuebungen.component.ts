@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './mischuebungen.component.html',
-  styleUrl: './mischuebungen.component.scss'
+  styleUrls: ['./mischuebungen.component.scss']
 })
 export class MischuebungenComponent {
 

@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './nochzueben.component.html',
-  styleUrl: './nochzueben.component.scss'
+  styleUrls: ['./nochzueben.component.scss']
 })
 export class NochzuebenComponent {
 

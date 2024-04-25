@@ -7,7 +7,7 @@ import { RouterModule, Routes } from '@angular/router';
   standalone: true,
   imports: [CommonModule, RouterModule],
   templateUrl: './dropdown.component.html',
-  styleUrl: './dropdown.component.scss'
+  styleUrls: ['./dropdown.component.scss']
 })
 export class DropdownComponent {
   @Input()

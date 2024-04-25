@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './eigeneuebungen.component.html',
-  styleUrl: './eigeneuebungen.component.scss'
+  styleUrls: ['./eigeneuebungen.component.scss']
 })
 export class EigeneuebungenComponent {
 

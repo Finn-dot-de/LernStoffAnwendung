@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './schnelluebung.component.html',
-  styleUrl: './schnelluebung.component.scss'
+  styleUrls: ['./schnelluebung.component.scss']
 })
 export class SchnelluebungComponent {
 

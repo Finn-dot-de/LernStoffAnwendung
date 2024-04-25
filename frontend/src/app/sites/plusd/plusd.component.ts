@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './plusd.component.html',
-  styleUrl: './plusd.component.scss'
+  styleUrls: ['./plusd.component.scss']
 })
 export class PlusdComponent {
 

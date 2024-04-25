@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './ittk.component.html',
-  styleUrl: './ittk.component.scss'
+  styleUrls: ['./ittk.component.scss']
 })
 export class IttkComponent {
 

@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './awp.component.html',
-  styleUrl: './awp.component.scss'
+  styleUrls: ['./awp.component.scss']
 })
 export class AwpComponent {
 

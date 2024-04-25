@@ -1,32 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
-body{
-  margin: 0;
-  padding: 0;
-  font-family: NotoSansItalic;
-  box-sizing: border-box;
+body {
+    margin: 0;
 }
-
-:root {
-  --header-color: #4caf50;
-}
-
-@font-face{
-  font-family: NotoSans;
-  src: url(assets/fonts/NotoSans-VariableFont_wdth_wght.woff);
-}
-
-@font-face{
-  font-family: NotoSansItalic;
-  src: url(assets/fonts/NotoSans-Italic-VariableFont_wdth_wght.woff);
-}
-
-html, body { height: 100%; }
-body { margin: 0;}
-
-.mat-mdc-menu-content {
-  background-color: #4caf4f;
-}
-
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

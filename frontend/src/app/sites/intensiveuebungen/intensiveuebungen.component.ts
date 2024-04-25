@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './intensiveuebungen.component.html',
-  styleUrl: './intensiveuebungen.component.scss'
+  styleUrls: ['./intensiveuebungen.component.scss']
 })
 export class IntensiveuebungenComponent {
 

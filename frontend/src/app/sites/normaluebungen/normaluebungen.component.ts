@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './normaluebungen.component.html',
-  styleUrl: './normaluebungen.component.scss'
+  styleUrls: ['./normaluebungen.component.scss']
 })
 export class NormaluebungenComponent {
 

@@ -5,7 +5,7 @@ import { DropdownComponent } from '../dropdown/dropdown.component';
   selector: 'app-header',
   standalone: true,
   templateUrl: './header.component.html',
-  styleUrl: './header.component.scss',
+  styleUrls: ['./header.component.scss'],
   imports: [DropdownComponent],
 })
 export class HeaderComponent {

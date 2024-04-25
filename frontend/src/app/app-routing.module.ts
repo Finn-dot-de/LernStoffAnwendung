@@ -1,4 +1,5 @@
-import { Routes } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 import { AwpComponent } from './sites/awp/awp.component';
 import { PlusdComponent } from './sites/plusd/plusd.component';
 import { ItsComponent } from './sites/its/its.component';
@@ -11,8 +12,9 @@ import { LangzeitComponent } from './sites/langzeit/langzeit.component';
 import { NochzuebenComponent } from './sites/nochzueben/nochzueben.component';
 import { EigeneuebungenComponent } from './sites/eigeneuebungen/eigeneuebungen.component';
 import { NormaluebungenComponent } from './sites/normaluebungen/normaluebungen.component';
+import { LoginComponent } from './maincomponents/login/login.component';
 
-export const routes: Routes = [
+const routes: Routes = [
   { path: 'awp', component: AwpComponent },
   { path: 'plusd', component: PlusdComponent },
   { path: 'its', component: ItsComponent },
@@ -25,4 +27,11 @@ export const routes: Routes = [
   { path: 'nochzueben', component: NochzuebenComponent },
   { path: 'eigeneuebungen', component: EigeneuebungenComponent },
   { path: 'normaluebungen', component: NormaluebungenComponent },
+  { path: 'login', component: LoginComponent },
 ];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
