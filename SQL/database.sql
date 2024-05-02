@@ -4,7 +4,6 @@ DROP SCHEMA IF EXISTS quizschema CASCADE;
 -- Erstellen des Schemas "quizschema"
 CREATE SCHEMA IF NOT EXISTS quizschema AUTHORIZATION learner;
 
--- Nach dem Erstellen des Schemas können Sie die Tabellen erstellen
 -- Erstellen der Tabelle "themen" im Schema "quizschema"
 CREATE TABLE quizschema.themen (
     thema_id SERIAL PRIMARY KEY,
@@ -43,7 +42,6 @@ INSERT INTO users (username, password, email) VALUES
     ('lisa_musterfrau', 'geheim123', 'lisa@example.com');
 
 -- Beispiel: Einfügen einer Multiple-Choice-Frage und Antwortmöglichkeiten
--- Beachten Sie, dass die Referenzen jetzt das Schema "quizschema" enthalten
 INSERT INTO quizschema.mc_quiz (thema_id, frage) VALUES
 ((SELECT thema_id FROM quizschema.themen WHERE thema_name = 'IT-Technik'), 'Was ist ein Router?');
 

@@ -39,7 +39,7 @@ func ConnectToDB() (*sql.DB, error) {
 	}
 
 	// Wenn die Verbindung erfolgreich hergestellt wurde, wird eine Erfolgsmeldung gedruckt.
-	fmt.Println("Successfully connected!")
-	// Geben Sie die Datenbankverbindung und nil für den Fehler zurück.
+	fmt.Println("Successfully connected!", db)
+	// Gibt die Datenbankverbindung und nil für den Fehler zurück.
 	return db, nil
 }
