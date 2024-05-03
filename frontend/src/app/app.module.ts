@@ -6,10 +6,12 @@ import { AppComponent } from './app.component';
 import { FooterComponent } from './Components/maincomponents/footer/footer.component';
 import { HeaderComponent } from './Components/maincomponents/header/header.component';
 import { LoginComponent } from './Components/Subcomponents/login/login.component';
+import { QuizbereichComponent } from './quizbereich/quizbereich.component';
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        QuizbereichComponent
     ],
     providers: [],
     bootstrap: [AppComponent],
