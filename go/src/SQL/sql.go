@@ -6,7 +6,8 @@ import (
 	"database/sql" // Paket für die Interaktion mit SQL-Datenbanken.
 	"fmt"          // Paket für formatierte E/A.
 
-	_ "github.com/lib/pq" // PostgreSQL-Treiber.
+	"github.com/Finn-dot-de/LernStoffAnwendung/src/structs" // Paket für die Structs für die JSON
+	_ "github.com/lib/pq"                                   // PostgreSQL-Treiber.
 )
 
 // ConnectToDB stellt eine Verbindung zur Datenbank her und gibt diese zurück.
@@ -42,4 +43,80 @@ func ConnectToDB() (*sql.DB, error) {
 	fmt.Println("Successfully connected!")
 	// Gibt die Datenbankverbindung und nil für den Fehler zurück.
 	return db, nil
+}
+
+// GetFragenFromDB ruft alle Fragen aus der Datenbank ab und gibt sie zurück.
+func GetFragenFromDB(db *sql.DB) ([]structs.Frage, error) {
+	rows, err := db.Query(`
+	SELECT 
+		fragen.frage_id, 
+		fragen.frage_text, 
+		themen.thema_id, 
+		themen.thema_name, 
+		themen.beschreibung, 
+		a.antwort_id, 
+		a.antwort_text, 
+		a.ist_korrekt
+	FROM 
+		quizschema.fragen
+	LEFT JOIN 
+		quizschema.moegliche_antworten AS a ON a.frage_id = fragen.frage_id
+	JOIN 
+		quizschema.themen ON fragen.thema_id = themen.thema_id;
+	`)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+
+	var fragen []structs.Frage
+	for rows.Next() {
+		var frageID, themaID int
+		var frageText, themaName, beschreibung string
+		var antwortID sql.NullInt64
+		var antwortText sql.NullString
+		var istKorrekt sql.NullBool
+
+		// Daten aus der Abfrage in Variablen scannen
+		err := rows.Scan(&frageID, &frageText, &themaID, &themaName, &beschreibung, &antwortID, &antwortText, &istKorrekt)
+		if err != nil {
+			return nil, err
+		}
+
+		// Überprüfen, ob die Frage bereits in der Liste vorhanden ist
+		found := false
+		for i := range fragen {
+			if fragen[i].ID == frageID {
+				found = true
+				break
+			}
+		}
+
+		// Wenn die Frage nicht gefunden wurde, füge sie der Liste hinzu
+		if !found {
+			fragen = append(fragen, structs.Frage{
+				ID:           frageID,
+				FrageText:    frageText,
+				ThemaID:      themaID,
+				ThemaName:    themaName,
+				Beschreibung: beschreibung,
+				Antworten:    []structs.Antwort{},
+			})
+		}
+
+		// Füge die Antwort der entsprechenden Frage hinzu, falls vorhanden
+		if antwortID.Valid {
+			fragen[len(fragen)-1].Antworten = append(fragen[len(fragen)-1].Antworten, structs.Antwort{
+				AntwortID:  int(antwortID.Int64),
+				Antwort:    antwortText.String,
+				IstKorrekt: istKorrekt.Bool,
+			})
+		}
+	}
+	// Überprüfen auf Fehler während des Durchlaufs der Zeilen
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+
+	return fragen, nil
 }

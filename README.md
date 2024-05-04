@@ -29,7 +29,7 @@ Nach erfolgreicher Installation von Node.js, installieren Sie Angular CLI mit de
 Geben Sie `ng build` in der cmd ein und drücken Sie Enter. Dadurch wird die Anwendung im `dist` Ordner zusammengebaut.
 
 ### Dateien kopieren
-Führen Sie das `copy.bat` Skript aus, um die kompilierten Dateien in den Golang Server zu kopieren.
+Führen Sie das `copy.bat` Skript aus, um die kompilierten Dateien in den Golang Server zu kopieren. Aber ändern sie vorher die Pfade aus durch die Pfade vom Quellordner `dist`. Der Ziel Ordner ist der `project` Ordner im Go `src` Ordner welcher noch erstellt werden muss dort im `src` Ordner.
 
 ### Go Compiler installieren
 Da es sich um Golang Dateien handelt, benötigen Sie den Go Compiler. Installieren Sie Go von der offiziellen Golang Website.
