@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AwpComponent } from './sites/awp/awp.component';
-import { PlusdComponent } from './sites/plusd/plusd.component';
-import { ItsComponent } from './sites/its/its.component';
-import { IttkComponent } from './sites/ittk/ittk.component';
-import { IttaComponent } from './sites/itta/itta.component';
-import { SchnelluebungComponent } from './sites/schnelluebung/schnelluebung.component';
-import { IntensiveuebungenComponent } from './sites/intensiveuebungen/intensiveuebungen.component';
-import { MischuebungenComponent } from './sites/mischuebungen/mischuebungen.component';
-import { LangzeitComponent } from './sites/langzeit/langzeit.component';
-import { NochzuebenComponent } from './sites/nochzueben/nochzueben.component';
-import { EigeneuebungenComponent } from './sites/eigeneuebungen/eigeneuebungen.component';
-import { NormaluebungenComponent } from './sites/normaluebungen/normaluebungen.component';
-import { LoginComponent } from './maincomponents/login/login.component';
+import { AwpComponent } from './Components/sites/awp/awp.component';
+import { PlusdComponent } from './Components/sites/plusd/plusd.component';
+import { ItsComponent } from './Components/sites/its/its.component';
+import { IttkComponent } from './Components/sites/ittk/ittk.component';
+import { IttaComponent } from './Components/sites/itta/itta.component';
+import { SchnelluebungComponent } from './Components/sites/schnelluebung/schnelluebung.component';
+import { IntensiveuebungenComponent } from './Components/sites/intensiveuebungen/intensiveuebungen.component';
+import { MischuebungenComponent } from './Components/sites/mischuebungen/mischuebungen.component';
+import { LangzeitComponent } from './Components/sites/langzeit/langzeit.component';
+import { NochzuebenComponent } from './Components/sites/nochzueben/nochzueben.component';
+import { EigeneuebungenComponent } from './Components/sites/eigeneuebungen/eigeneuebungen.component';
+import { NormaluebungenComponent } from './Components/sites/normaluebungen/normaluebungen.component';
+import { LoginComponent } from './Components/Subcomponents/login/login.component';
 
 const routes: Routes = [
   { path: 'awp', component: AwpComponent },
