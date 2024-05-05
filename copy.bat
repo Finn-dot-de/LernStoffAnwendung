@@ -1,6 +1,6 @@
 @echo off
-set "quelle=C:\Pfad\zum\Quellordner"
-set "ziel=D:\Pfad\zum\Zielordner"
+set "quelle=C:\DEV\LernStoffWebApp\frontend\dist\test"
+set "ziel=C:\DEV\LernStoffWebApp\go\src\project"
 set "intervall=300"  REM Intervall in Sekunden (hier 300 Sekunden = 5 Minuten)
 
 :LOOP
