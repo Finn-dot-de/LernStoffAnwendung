@@ -3,7 +3,7 @@ host: localhost:8080
 info:
   contact: {}
   description: Eine einfache API für mein Projekt.
-  title: Mein API Titel
+  title: Meine API Dokumentation
   version: "1.0"
 paths: {}
 swagger: "2.0"
