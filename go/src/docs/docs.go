@@ -23,7 +23,7 @@ var SwaggerInfo = &swag.Spec{
 	Host:             "localhost:8080",
 	BasePath:         "/",
 	Schemes:          []string{},
-	Title:            "Meine API Dokumentation",
+	Title:            "Mein API Titel",
 	Description:      "Eine einfache API für mein Projekt.",
 	InfoInstanceName: "swagger",
 	SwaggerTemplate:  docTemplate,

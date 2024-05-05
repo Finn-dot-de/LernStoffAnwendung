@@ -2,7 +2,7 @@
     "swagger": "2.0",
     "info": {
         "description": "Eine einfache API für mein Projekt.",
-        "title": "Meine API Dokumentation",
+        "title": "Mein API Titel",
         "contact": {},
         "version": "1.0"
     },
