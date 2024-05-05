@@ -5,13 +5,11 @@ import (
 	"log"
 	"net/http"
 
-	_ "github.com/Finn-dot-de/LernStoffAnwendung/docs" // Pfad zu Ihren generierten Docs
 	"github.com/Finn-dot-de/LernStoffAnwendung/src/SQL"
-	"github.com/go-chi/chi"
-	httpSwagger "github.com/swaggo/http-swagger/v2"
+	httpSwagger "github.com/swaggo/http-swagger"
 )
 
-// @title Mein API Titel
+// @title Meine API Dokumentation
 // @version 1.0
 // @description Eine einfache API für mein Projekt.
 // @host localhost:8080
@@ -24,9 +22,12 @@ func main() {
 	}
 	defer db.Close()
 
-	r := chi.NewRouter()
+	// Statische Dateien servieren (z. B. für Angular-Anwendung und Swagger UI)
+	fs := http.FileServer(http.Dir("./project"))
+	http.Handle("/", http.StripPrefix("/", fs))
 
-	r.Get("/api/fragen", func(w http.ResponseWriter, r *http.Request) {
+	// Handler für API-Endpunkt zum Abrufen von Fragen
+	http.HandleFunc("/api/fragen", func(w http.ResponseWriter, r *http.Request) {
 		// Fragen aus der Datenbank abrufen
 		fragen, err := SQL.GetFragenFromDB(db)
 		if err != nil {
@@ -44,11 +45,9 @@ func main() {
 	})
 
 	// Swagger UI wird unter /swagger/ verfügbar sein
-	r.Get("/swagger/*", httpSwagger.Handler(
-		httpSwagger.URL("http://localhost:8080/swagger/doc.json"), // The url pointing to API definition
-	))
+	http.Handle("/swagger/", httpSwagger.WrapHandler)
 
 	// Server starten und auf Port 8080 lauschen
 	log.Println("Der Server läuft auf 8080!!")
-	log.Fatal(http.ListenAndServe(":8080", r))
+	log.Fatal(http.ListenAndServe(":8080", nil))
 }
