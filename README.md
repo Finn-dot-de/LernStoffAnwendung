@@ -39,4 +39,4 @@ Wechseln Sie mit der cmd in den `src` Ordner und führen Sie den Befehl `go run 
 
 ## Zugriff auf die Anwendung
 Sie können auf die Anwendung zugreifen, indem Sie `http://localhost:8080/` in Ihren Browser eingeben.
-Mit `http://localhost:8080/swagger/` gelangen Sie zur Swagger Oberfläche, wo Sie die API Befehle testen können.
+<!-- Mit `http://localhost:8080/swagger/` gelangen Sie zur Swagger Oberfläche, wo Sie die API Befehle testen können. -->
