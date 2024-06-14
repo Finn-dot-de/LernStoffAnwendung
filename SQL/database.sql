@@ -46,6 +46,9 @@ INSERT INTO quizschema.themen (thema_name, beschreibung) VALUES ('PlusD', 'Plus 
 INSERT INTO quizschema.themen (thema_name, beschreibung) VALUES ('ITTk', 'IT-Technik kaufmaennisch');
 INSERT INTO quizschema.themen (thema_name, beschreibung) VALUES ('ITTa / ITTab', 'IT-Technik ab und a');
 
+INSERT INTO quizschema.benutzer(name) VALUES ('Test');
+INSERT INTO quizschema.benutzer(passwort, benutzer_id) VALUES ('936a185caaa266bb9cbe981e9e05cb78cd732b0b3280eb944412bb6f8f8f07af', 1)
+
 ------------------------------------------------------------------------------------------------------------------------------------------:
 
 -------------------------------------------------------- Fragen --------------------------------------------------------------------------:

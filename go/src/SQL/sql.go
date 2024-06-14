@@ -10,6 +10,30 @@ import (
 	_ "github.com/lib/pq"                                   // PostgreSQL-Treiber.
 )
 
+func GetUserByUsername(username string) (User, error) {
+	db, err := ConnectToDB()
+	if err != nil {
+	  return User{}, err
+	}
+	defer db.Close()
+  
+	var user User
+	err = db.QueryRow("SELECT username, password FROM users WHERE username = ?", username).Scan(&user.Username, &user.Password)
+	if err != nil {
+	  if err == sql.ErrNoRows {
+		return User{}, errors.New("user not found")
+	  }
+	  return User{}, err
+	}
+  
+	return user, nil
+  }
+  
+  func CheckPasswordHash(password, hash string) bool {
+	err := bcrypt.CompareHashAndPassword([]byte(hash), []byte(password))
+	return err == nil
+  }
+
 // ConnectToDB stellt eine Verbindung zur Datenbank her und gibt diese zurück.
 func ConnectToDB() (*sql.DB, error) {
 	// Konstanten für die Datenbankverbindung.
