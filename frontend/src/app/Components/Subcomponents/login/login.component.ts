@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import * as bcrypt from 'bcryptjs';
 
@@ -11,31 +12,28 @@ export class LoginComponent {
   username: string = '';
   password: string = '';
 
-  async hashPassword(password: string): Promise<string> {
-    const salt = await bcrypt.genSalt(10);
-    return await bcrypt.hash(password, salt);
+  constructor(private http: HttpClient) {}
+
+  PassWandler(word: string): string {
+    const salt = bcrypt.genSaltSync(10);
+    const hashedPassword = bcrypt.hashSync(word, salt);
+    return hashedPassword;
   }
 
-  async login() {
-    const hashedPassword = await this.hashPassword(this.password);
+  login() {
+    const hashedPassword = this.PassWandler(this.password);
     const loginData = {
       username: this.username,
       password: hashedPassword
     };
 
-    // Senden die Anmeldedaten an den Server
-    const response = await fetch('/api/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
+    this.http.post('/api/login', loginData).subscribe({
+      next: (response) => {
+        console.log('Login successful', response);
       },
-      body: JSON.stringify(loginData)
+      error: (error) => {
+        console.error('Login failed', error);
+      }
     });
-
-    if (response.ok) {
-      alert("Eingelogt")
-    } else {
-      alert("Fehler")
-    }
   }
 }

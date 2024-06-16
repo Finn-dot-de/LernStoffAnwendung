@@ -5,6 +5,7 @@ go 1.21.6
 require (
 	github.com/lib/pq v1.10.9
 	github.com/swaggo/http-swagger v1.3.4
+	golang.org/x/crypto v0.22.0
 )
 
 require github.com/swaggo/files/v2 v2.0.0 // indirect

@@ -7,20 +7,25 @@ import { FooterComponent } from './Components/maincomponents/footer/footer.compo
 import { HeaderComponent } from './Components/maincomponents/header/header.component';
 import { LoginComponent } from './Components/Subcomponents/login/login.component';
 import { RegistrierungComponent } from './Components/Subcomponents/registrierung/registrierung.component';
+import { FormsModule } from '@angular/forms';
+import { provideHttpClient } from '@angular/common/http';
 
 @NgModule({
     declarations: [
         AppComponent,
         RegistrierungComponent,
     ],
-    providers: [],
+    providers: [
+        provideHttpClient()
+      ],
     bootstrap: [AppComponent],
     imports: [
         BrowserModule,
         AppRoutingModule,
         FooterComponent,
         HeaderComponent,
-        LoginComponent
+        LoginComponent,
+        FormsModule
     ]
 })
 export class AppModule { }
