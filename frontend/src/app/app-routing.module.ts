@@ -13,6 +13,7 @@ import { NochzuebenComponent } from './Components/sites/nochzueben/nochzueben.co
 import { EigeneuebungenComponent } from './Components/sites/eigeneuebungen/eigeneuebungen.component';
 import { NormaluebungenComponent } from './Components/sites/normaluebungen/normaluebungen.component';
 import { LoginComponent } from './Components/Subcomponents/login/login.component';
+import { RegistrierungComponent } from './Components/Subcomponents/registrierung/registrierung.component';
 
 const routes: Routes = [
   { path: 'awp', component: AwpComponent },
@@ -28,6 +29,7 @@ const routes: Routes = [
   { path: 'eigeneuebungen', component: EigeneuebungenComponent },
   { path: 'normaluebungen', component: NormaluebungenComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'registierung', component: RegistrierungComponent },
 ];
 
 @NgModule({
