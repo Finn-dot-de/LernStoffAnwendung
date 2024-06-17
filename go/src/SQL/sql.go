@@ -3,9 +3,10 @@ package SQL
 
 // Importieren der notwendigen Pakete.
 import (
-	"database/sql"  // Paket für die Interaktion mit SQL-Datenbanken.
-	"errors"        // Paket für das Handling von Fehlern.
-	"fmt"           // Paket für formatierte E/A.
+	"database/sql" // Paket für die Interaktion mit SQL-Datenbanken.
+	"errors"       // Paket für das Handling von Fehlern.
+	"fmt"          // Paket für formatierte E/A.
+
 	"golang.org/x/crypto/bcrypt" // Paket für Passwort-Hashing.
 
 	"github.com/Finn-dot-de/LernStoffAnwendung/src/structs" // Paket für die Structs für die JSON
