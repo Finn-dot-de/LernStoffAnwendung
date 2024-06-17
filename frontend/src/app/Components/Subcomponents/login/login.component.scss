@@ -5,9 +5,21 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: rgba(255, 255, 255, 0.8); /* Gläserner Hintergrund */
-  backdrop-filter: blur(10px); /* Weichzeichner-Effekt für den Hintergrund */
+  background-color: rgba(255, 255, 255, 0.8);
+  /* Gläserner Hintergrund */
+  backdrop-filter: blur(10px);
+  /* Weichzeichner-Effekt für den Hintergrund */
   padding: 20px;
+
+  #password,
+  #username {
+    background-color: rgba(211, 211, 211, 0.747);
+  }
+
+  #password:invalid,
+  #username:invalid {
+    border: 2px solid red;
+  }
 
   h1 {
     font-size: 24px;
@@ -61,13 +73,15 @@
   }
 
   .animated-button {
-    animation: pulse 1s infinite alternate; /* Beispielanimation */
+    animation: pulse 1s infinite alternate;
+    /* Beispielanimation */
   }
 
   @keyframes pulse {
     0% {
       transform: scale(1);
     }
+
     100% {
       transform: scale(1.1);
     }

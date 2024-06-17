@@ -6,6 +6,7 @@ import (
 	"net/http"
 
 	"github.com/Finn-dot-de/LernStoffAnwendung/src/SQL"
+	"github.com/Finn-dot-de/LernStoffAnwendung/src/login"
 	"github.com/go-chi/chi"
 )
 
@@ -23,7 +24,7 @@ func main() {
 	fs := http.FileServer(http.Dir("./project"))
 	r.Handle("/*", http.StripPrefix("/", fs))
 
-	// Handler für API-Endpunkt zum Abrufen von Fragen
+	// API-Endpunkte
 	r.Get("/api/fragen", func(w http.ResponseWriter, r *http.Request) {
 		// Fragen aus der Datenbank abrufen
 		fragen, err := SQL.GetFragenFromDB(db)
@@ -39,6 +40,9 @@ func main() {
 			return
 		}
 	})
+
+	// Login-Handler
+	r.Post("/api/login", login.LoginHandler)
 
 	// Server starten und auf Port 8080 lauschen
 	log.Println("Der Server läuft auf 8080!!")

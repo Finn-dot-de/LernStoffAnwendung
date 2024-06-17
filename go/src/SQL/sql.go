@@ -4,11 +4,38 @@ package SQL
 // Importieren der notwendigen Pakete.
 import (
 	"database/sql" // Paket für die Interaktion mit SQL-Datenbanken.
+	"errors"       // Paket für das Handling von Fehlern.
 	"fmt"          // Paket für formatierte E/A.
+
+	"golang.org/x/crypto/bcrypt" // Paket für Passwort-Hashing.
 
 	"github.com/Finn-dot-de/LernStoffAnwendung/src/structs" // Paket für die Structs für die JSON
 	_ "github.com/lib/pq"                                   // PostgreSQL-Treiber.
 )
+
+func GetUserByUsername(username string) (structs.User, error) {
+	db, err := ConnectToDB()
+	if err != nil {
+		return structs.User{}, err
+	}
+	defer db.Close()
+
+	var user structs.User
+	err = db.QueryRow("SELECT username, password FROM users WHERE username = $1", username).Scan(&user.Username, &user.Password)
+	if err != nil {
+		if err == sql.ErrNoRows {
+			return structs.User{}, errors.New("user not found")
+		}
+		return structs.User{}, err
+	}
+
+	return user, nil
+}
+
+func CheckPasswordHash(password, hash string) bool {
+	err := bcrypt.CompareHashAndPassword([]byte(hash), []byte(password))
+	return err == nil
+}
 
 // ConnectToDB stellt eine Verbindung zur Datenbank her und gibt diese zurück.
 func ConnectToDB() (*sql.DB, error) {
