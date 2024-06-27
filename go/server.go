@@ -7,6 +7,7 @@ import (
 
 	"github.com/Finn-dot-de/LernStoffAnwendung/src/SQL"
 	"github.com/Finn-dot-de/LernStoffAnwendung/src/login"
+	"github.com/Finn-dot-de/LernStoffAnwendung/src/utils"
 	"github.com/go-chi/chi"
 )
 
@@ -19,6 +20,8 @@ func main() {
 	defer db.Close()
 
 	r := chi.NewRouter()
+
+	r.Use(utils.LoggerMiddleware)
 
 	// Statische Dateien servieren (z. B. für Angular-Anwendung)
 	fs := http.FileServer(http.Dir("./project"))

@@ -21,7 +21,7 @@ func GetUserByUsername(username string) (structs.User, error) {
 	defer db.Close()
 
 	var user structs.User
-	err = db.QueryRow("SELECT username, password FROM users WHERE username = $1", username).Scan(&user.Username, &user.Password)
+	err = db.QueryRow("SELECT b.name, bl.passwort FROM quizschema.benutzer AS b JOIN quizschema.benutzer_login AS bl ON b.id = bl.benutzer_id WHERE b.name = $1;", username).Scan(&user.Username, &user.Password)
 	if err != nil {
 		if err == sql.ErrNoRows {
 			return structs.User{}, errors.New("user not found")

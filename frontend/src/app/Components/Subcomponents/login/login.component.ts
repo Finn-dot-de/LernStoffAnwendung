@@ -1,6 +1,6 @@
+// login.component.ts
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import * as bcrypt from 'bcryptjs';
 
 @Component({
   selector: 'app-login',
@@ -14,25 +14,22 @@ export class LoginComponent {
 
   constructor(private http: HttpClient) {}
 
-  PassWandler(word: string): string {
-    const salt = bcrypt.genSaltSync(10);
-    const hashedPassword = bcrypt.hashSync(word, salt);
-    return hashedPassword;
-  }
+  login(event: Event) {
+    event.preventDefault();
 
-  login() {
-    const hashedPassword = this.PassWandler(this.password);
     const loginData = {
       username: this.username,
-      password: hashedPassword
+      password: this.password
     };
 
     this.http.post('/api/login', loginData).subscribe({
       next: (response) => {
         console.log('Login successful', response);
+        alert("It worked")
       },
       error: (error) => {
         console.error('Login failed', error);
+        alert("Did not worked")
       }
     });
   }
