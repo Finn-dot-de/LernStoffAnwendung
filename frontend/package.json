@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "name": "frontend",
   "version": "0.0.0",
@@ -47,3 +48,5 @@
     "typescript": "~5.4.2"
   }
 }
+=======
+>>>>>>> 53ac3ba28a82ad8e283bcbcf340ba0e51f6ca50f
