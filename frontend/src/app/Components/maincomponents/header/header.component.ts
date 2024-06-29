@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { DropdownComponent } from '../dropdown/dropdown.component';
+import { AuthService } from 'src/app/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -32,4 +33,11 @@ export class HeaderComponent {
   selectedValue1 = 'Fächer';
   selectedValue2 = 'Übungen';
   selectedValue3 = 'Lernfortschritt';
+
+  constructor(private authService: AuthService) { }
+
+  logout() {
+    this.authService.setLoginStatus(false);
+    window.location.reload();
+  }
 }

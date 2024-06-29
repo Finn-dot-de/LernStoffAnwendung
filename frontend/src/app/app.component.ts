@@ -11,7 +11,7 @@ import { AuthService } from './auth.service';
   `,
 })
 export class AppComponent {
-  isLoggedIn = false;
+  isLoggedIn = true;
   title = "LernStoffAnwendung"
 
   constructor(private authService: AuthService) {
