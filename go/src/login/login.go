@@ -3,6 +3,7 @@ package login
 import (
 	"encoding/json"
 	"fmt"
+	"log"
 	"net/http"
 
 	"golang.org/x/crypto/bcrypt"
@@ -21,14 +22,14 @@ func LoginHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	user, err := SQL.GetUserByUsername(loginData.Username)
+	user, pwd, err := SQL.GetUserByUsername(loginData.Username)
 	if err != nil {
 		fmt.Println("Fehler beim Abrufen des Benutzers aus der Datenbank:", err)
 		http.Error(w, "Invalid username or password", http.StatusUnauthorized)
 		return
 	}
 
-	err = bcrypt.CompareHashAndPassword([]byte(user.Password), []byte(loginData.Password))
+	err = bcrypt.CompareHashAndPassword([]byte(pwd.Password), []byte(loginData.Password))
 	if err != nil {
 		fmt.Println("Fehler beim Vergleichen des Passworts:", err)
 		http.Error(w, "Invalid username or password", http.StatusUnauthorized)

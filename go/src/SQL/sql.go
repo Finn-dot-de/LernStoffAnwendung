@@ -6,6 +6,7 @@ import (
 	"database/sql" // Paket für die Interaktion mit SQL-Datenbanken.
 	"errors"       // Paket für das Handling von Fehlern.
 	"fmt"          // Paket für formatierte E/A.
+	"log"
 
 	"golang.org/x/crypto/bcrypt" // Paket für Passwort-Hashing.
 
@@ -13,23 +14,25 @@ import (
 	_ "github.com/lib/pq"                                   // PostgreSQL-Treiber.
 )
 
-func GetUserByUsername(username string) (structs.User, error) {
+func GetUserByUsername(username string) (structs.Password, error) {
 	db, err := ConnectToDB()
 	if err != nil {
-		return structs.User{}, err
+		return structs.Password{}, nil
 	}
 	defer db.Close()
 
 	var user structs.User
-	err = db.QueryRow("SELECT b.name, bl.passwort FROM quizschema.benutzer AS b JOIN quizschema.benutzer_login AS bl ON b.id = bl.benutzer_id WHERE b.name = $1;", username).Scan(&user.Username, &user.Password)
+	var pwd structs.Password
+	err = db.QueryRow("SELECT b.name, bl.passwort FROM quizschema.benutzer AS b JOIN quizschema.benutzer_login AS bl ON b.id = bl.benutzer_id WHERE b.name = $1;", username).Scan(&user.Username, &pwd.Password)
+	log.Println(err, user)
 	if err != nil {
 		if err == sql.ErrNoRows {
-			return structs.User{}, errors.New("user not found")
+			return structs.Password{}, errors.New("user not found")
 		}
-		return structs.User{}, err
+		return structs.Password{}, err
 	}
 
-	return user, nil
+	return pwd, nil
 }
 
 func CheckPasswordHash(password, hash string) bool {

@@ -26,5 +26,8 @@ type LoginData struct {
 // User repräsentiert einen Benutzer in der Datenbank.
 type User struct {
 	Username string
+}
+
+type Password struct {
 	Password string
 }

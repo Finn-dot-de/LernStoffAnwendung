@@ -8,24 +8,23 @@ import { HeaderComponent } from './Components/maincomponents/header/header.compo
 import { LoginComponent } from './Components/Subcomponents/login/login.component';
 import { RegistrierungComponent } from './Components/Subcomponents/registrierung/registrierung.component';
 import { FormsModule } from '@angular/forms';
-import { provideHttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
     declarations: [
         AppComponent,
         RegistrierungComponent,
     ],
-    providers: [
-        provideHttpClient()
-      ],
-    bootstrap: [AppComponent],
     imports: [
         BrowserModule,
         AppRoutingModule,
+        HttpClientModule,
+        FormsModule,
         FooterComponent,
         HeaderComponent,
         LoginComponent,
-        FormsModule
-    ]
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

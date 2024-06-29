@@ -47,7 +47,7 @@ INSERT INTO quizschema.themen (thema_name, beschreibung) VALUES ('ITTk', 'IT-Tec
 INSERT INTO quizschema.themen (thema_name, beschreibung) VALUES ('ITTa / ITTab', 'IT-Technik ab und a');
 
 INSERT INTO quizschema.benutzer(name) VALUES ('Test');
-INSERT INTO quizschema.benutzer_login(passwort, benutzer_id) VALUES ('936a185caaa266bb9cbe981e9e05cb78cd732b0b3280eb944412bb6f8f8f07af', 1);
+INSERT INTO quizschema.benutzer_login(passwort, benutzer_id) VALUES ('$2a$10$ZzJRbS4lW9ddshW1wuK/HeheJjHGdwAQIekxQ2Bh/LBP4JksNXjgS', 1);
 
 ------------------------------------------------------------------------------------------------------------------------------------------:
 

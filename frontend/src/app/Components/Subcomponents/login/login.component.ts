@@ -1,12 +1,14 @@
 // login.component.ts
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { FormsModule, NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
-  standalone: true
+  standalone: true,
+  imports: [FormsModule]
 })
 export class LoginComponent {
   username: string = '';
