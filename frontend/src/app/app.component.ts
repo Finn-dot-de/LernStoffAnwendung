@@ -12,6 +12,7 @@ import { AuthService } from './auth.service';
 })
 export class AppComponent {
   isLoggedIn = false;
+  title = "LernStoffAnwendung"
 
   constructor(private authService: AuthService) {
     this.isLoggedIn = this.authService.getLoginStatus();

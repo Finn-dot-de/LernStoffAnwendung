@@ -1,7 +1,7 @@
-// login.component.ts
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule, NgModel } from '@angular/forms';
+import { AuthService } from '../../../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +14,11 @@ export class LoginComponent {
   username: string = '';
   password: string = '';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private authService: AuthService) { }
+
+  refresh(): void {
+    window.location.reload();
+  }
 
   login(event: Event) {
     event.preventDefault();
@@ -27,11 +31,13 @@ export class LoginComponent {
     this.http.post('/api/login', loginData).subscribe({
       next: (response) => {
         console.log('Login successful', response);
-        alert("It worked")
+        this.authService.setLoginStatus(true);
+        this.refresh()
       },
       error: (error) => {
         console.error('Login failed', error);
-        alert("Did not worked")
+        this.authService.setLoginStatus(false);
+        this.refresh()
       }
     });
   }
