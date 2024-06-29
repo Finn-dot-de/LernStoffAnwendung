@@ -6,14 +6,12 @@ import { AppComponent } from './app.component';
 import { FooterComponent } from './Components/maincomponents/footer/footer.component';
 import { HeaderComponent } from './Components/maincomponents/header/header.component';
 import { LoginComponent } from './Components/Subcomponents/login/login.component';
-import { RegistrierungComponent } from './Components/Subcomponents/registrierung/registrierung.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
     declarations: [
         AppComponent,
-        RegistrierungComponent,
     ],
     imports: [
         BrowserModule,
